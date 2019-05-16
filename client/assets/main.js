@@ -47,9 +47,11 @@ const app = new Vue({
         })
 
         socket.on('navigate', (data) => {
-            let newPic = this.slides.find(x => x.id === data.next).img
-            this.bckImg = `url('assets/img/${newPic}')`
-            this.next = data.next
+            if(this.started) {
+                let newPic = this.slides.find(x => x.id === data.next).img
+                this.bckImg = `url('assets/img/${newPic}')`
+                this.next = data.next
+            }
         })
     },
     methods: {

@@ -11,10 +11,10 @@ io.on('connection', function(socket) {
 
         console.log('init detected from user {' + user.name + '} password: {'+ user.secret +'}')
         if(user.secret === SECRET) {
-            io.emit('access', {access: 'granted'})
+            socket.emit('access', {access: 'granted'})
         }
         else {
-            io.emit('access', {access: 'forbidden'})
+            socket.emit('access', {access: 'forbidden'})
         }
     });
 
